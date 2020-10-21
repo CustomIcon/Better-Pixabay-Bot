@@ -37,7 +37,7 @@ Accepted values:
 tiptext1 = """
 **💡 Tip (1 of 1)**
 
-you must pat @notmynamae in order to keep this bot alive! trust me.
+you must pat @aintmynamae in order to keep this bot alive! trust me.
 """
 
 default_inline = """
