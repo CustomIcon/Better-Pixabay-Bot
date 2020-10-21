@@ -50,15 +50,24 @@ async def inline(client, query):
     else:
         image = Image(config.get('api', 'key'))
         image.search()
-        ims = image.search(q=string.split()[1],
-                    lang='en',
-                    image_type='photo',
-                    orientation='horizontal',
-                    category=string.split()[0],
-                    safesearch='true',
-                    order='latest',
-                    page='backgrounds',
-                    per_page=50)
+        try:
+            ims = image.search(q=string.split()[1],
+                        lang='en',
+                        image_type='photo',
+                        orientation='horizontal',
+                        category=string.split()[0],
+                        safesearch='true',
+                        order='latest',
+                        page='backgrounds',
+                        per_page=50)
+        except IndexError:
+            await client.answer_inline_query(
+                query.id,
+                results=results,
+                switch_pm_text="Invalid catagory",
+                switch_pm_parameter="start"
+                )
+            return
         for item in ims['hits']:
             picture_url = item["largeImageURL"]
             text = await text_parser(item)
