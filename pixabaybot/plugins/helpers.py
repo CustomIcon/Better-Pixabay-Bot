@@ -9,10 +9,11 @@ def dynamic_data_filter(data):
 
 
 async def text_parser(item):
-    text = f'**Post ID**: `{item["id"]}`\n'
-    text += f'**Views**: `{item["views"]}`\n'
-    text += f'**Favourites**: `{item["favorites"]}`\n'
-    text += f'**Likes**: `{item["likes"]}`\n'
-    text += f'**Comments**: `{item["comments"]}`\n'
-    text += f'**Downloads**: `{item["downloads"]}``'
+    text = f'**ID**: `{item["id"]}`\n'
+    text += f'👁️`{item["views"]}` '
+    text += f'🌟`{item["favorites"]}` '
+    text += f'👍`{item["likes"]}` '
+    text += f'💬`{item["comments"]}` '
+    text += f'⬇️`{item["downloads"]}`\n'
+    text += f'**Tags**: `{item["tags"]}`'
     return text
