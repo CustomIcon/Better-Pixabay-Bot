@@ -18,6 +18,7 @@ async def alive(_, message):
 async def help_button(_, query):
     buttons = [[InlineKeyboardButton('Next', callback_data='help_2')]]
     await query.message.edit(helptext1, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
+    await query.answer()
 
 
 @pixabaybot.on_callback_query(dynamic_data_filter("help_2"))
@@ -27,9 +28,11 @@ async def tip_button1(_, query):
         InlineKeyboardButton('Search', switch_inline_query_current_chat = 'backgrounds sunset'),
         InlineKeyboardButton('Next', callback_data='tip_1')]]
     await query.message.edit(helptext2, reply_markup=InlineKeyboardMarkup(buttons))
+    await query.answer()
 
 
 @pixabaybot.on_callback_query(dynamic_data_filter("tip_1"))
 async def tip_button2(_, query):
     buttons = [[InlineKeyboardButton('Previous', callback_data='help_2')]]
     await query.message.edit(tiptext1, reply_markup=InlineKeyboardMarkup(buttons))
+    await query.answer()

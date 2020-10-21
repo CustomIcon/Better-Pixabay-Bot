@@ -1,7 +1,7 @@
 from urllib.parse import unquote, urlparse
 import re
 from random import randint
-from pixabay import Image 
+from pixabay import Image
 
 from pyrogram.types import (
     InlineQueryResultArticle,
@@ -15,7 +15,8 @@ from pixabaybot import pixabaybot, config
 from pixabaybot.plugins.helpers import text_parser
 from pixabaybot.plugins.texts import default_inline
 
-NEXT_OFFSET = 25
+message_cache = dict()
+
 CACHE_TIME = 0
 
 IMG = "https://cdn.pixabay.com/photo/2017/01/17/14/44/pixabay-1987090_960_720.png"
@@ -63,14 +64,16 @@ async def inline(client, query):
         for item in ims['hits']:
             picture_url = item["largeImageURL"]
             text = await text_parser(item)
+            message_cache[query.from_user.id] = text
             buttons = [[
                 InlineKeyboardButton('Link', url=f'{item["pageURL"]}'),
                 InlineKeyboardButton('Author', url=f'https://pixabay.com/users/{item["user"]}-{item["user_id"]}/')
-                ]]
+                ],
+                [InlineKeyboardButton('Info', callback_data='file_info')]
+                ]
             results.append(InlineQueryResultPhoto(
                 photo_url=picture_url,
                 title=f'Result:{item["id"]}',
-                caption=text,
                 description=f"Nothing",
                 reply_markup=InlineKeyboardMarkup(buttons)))
     await client.answer_inline_query(
