@@ -22,7 +22,7 @@ IMG = "https://cdn.pixabay.com/photo/2017/01/17/14/44/pixabay-1987090_960_720.pn
 
 DEFAULT_RESULTS = [
     InlineQueryResultArticle(
-        title="About Pixabaybot",
+        title="About BetterPixabayBot",
         input_message_content=InputTextMessageContent(
             default_inline
         ),

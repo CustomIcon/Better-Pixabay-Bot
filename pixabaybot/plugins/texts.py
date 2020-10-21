@@ -14,12 +14,12 @@ table_list = ['fashion', 'backgrounds', 'nature', 'science', 'education', 'feeli
 'people', 'religion', 'places', 'animals', 'industry', 'computer', 'food', 'sports',
 'transportation', 'travel', 'buildings','business', 'music']
 
-helptext = "With [Pixabaybot], you can scrap wallpapers from pixabay website to take wherever you go."
+helptext = "With [BetterPixabaybot], you can scrap wallpapers from pixabay website to take wherever you go."
 
 helptext1 = """
 **📖 Help (1 of 2)**
 
-The only thing you need is to have inline where to take it from
+You can only use this bot as how it is via inline, Check next page to find more about inline.
 """
 
 helptext2 = """
@@ -37,7 +37,7 @@ Accepted values:
 tiptext1 = """
 **💡 Tip (1 of 1)**
 
-you must pat @notmyname in order to keep this bot alive!
+you must pat @notmynamae in order to keep this bot alive! trust me.
 """
 
 default_inline = """
