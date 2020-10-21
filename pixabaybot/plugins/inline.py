@@ -69,14 +69,14 @@ async def inline(client, query):
                 )
             return
         for item in ims['hits']:
-            picture_url = item["largeImageURL"]
             text = await text_parser(item)
             buttons = [[
                 InlineKeyboardButton('Link', url=f'{item["pageURL"]}'),
                 InlineKeyboardButton('Author', url=f'https://pixabay.com/users/{item["user"]}-{item["user_id"]}/')
                 ]]
             results.append(InlineQueryResultPhoto(
-                photo_url=picture_url,
+                thumb_url=item['previewURL'],
+                photo_url=item["largeImageURL"],
                 title=f'Result:{item["id"]}',
                 caption=text,
                 description=f"Nothing",
