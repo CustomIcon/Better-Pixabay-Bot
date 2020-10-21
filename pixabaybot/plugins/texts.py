@@ -25,10 +25,10 @@ You can only use this bot as how it is via inline, Check next page to find more 
 helptext2 = """
 **📖 Help (2 of 2)**
 
-You can send me query via inline, like this one:
+You can send me query via inline, like this format:
 `@betterpixabaybot catagory search_query`
 
-Accepted values:
+──「 **Catagories** 」──
 `+============+============+`
 {table}
 `+============+============+`
